@@ -40,3 +40,12 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function Home() {
   return <App />;
 }
+import Frame from '~/components/Frame'
+
+export default function Home() {
+  return (
+    <main>
+      <Frame />
+    </main>
+  )
+}
