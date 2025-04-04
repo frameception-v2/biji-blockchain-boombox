@@ -56,22 +56,3 @@ export default async function RootLayout({
     </html>
   );
 }
-import '~/styles/globals.css'
-import type { Metadata } from 'next'
-
-export const metadata: Metadata = {
-  title: '90s Retro Music Player',
-  description: 'A Farcaster Frame showcasing classic 90s dance hits',
-}
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  )
-}

@@ -33,7 +33,7 @@ import { Label } from "~/components/ui/label";
 import { PROJECT_TITLE } from "~/lib/constants";
 
 export default function Frame(
-  { title }: { title?: string } = { title: PROJECT_TITLE }
+  { title }: { title?: string } = { title: PROJECT_TITLE },
 ) {
   const [isSDKLoaded, setIsSDKLoaded] = useState(false);
   const [context, setContext] = useState<Context.FrameContext>();
@@ -113,7 +113,7 @@ export default function Frame(
 
       sdk.on("frameAdded", ({ notificationDetails }) => {
         setLastEvent(
-          `frameAdded${!!notificationDetails ? ", notifications enabled" : ""}`
+          `frameAdded${!!notificationDetails ? ", notifications enabled" : ""}`,
         );
 
         setAdded(true);
@@ -191,7 +191,7 @@ export default function Frame(
       setAddFrameResult(
         result.notificationDetails
           ? `Added, got notificaton token ${result.notificationDetails.token} and url ${result.notificationDetails.url}`
-          : "Added, got no notification details"
+          : "Added, got no notification details",
       );
     } catch (error) {
       if (error instanceof AddFrame.RejectedByUser) {
@@ -249,7 +249,7 @@ export default function Frame(
         onSuccess: (hash) => {
           setTxHash(hash);
         },
-      }
+      },
     );
   }, [sendTransaction]);
 
@@ -472,8 +472,8 @@ export default function Frame(
                       {isConfirming
                         ? "Confirming..."
                         : isConfirmed
-                        ? "Confirmed!"
-                        : "Pending"}
+                          ? "Confirmed!"
+                          : "Pending"}
                     </div>
                   </div>
                 )}
@@ -492,7 +492,6 @@ export default function Frame(
                 <Button
                   onClick={handleSwitchChain}
                   disabled={isSwitchChainPending}
-                  isLoading={isSwitchChainPending}
                 >
                   Switch to {nextChain.name}
                 </Button>
@@ -594,8 +593,8 @@ function SendEth() {
             {isConfirming
               ? "Confirming..."
               : isConfirmed
-              ? "Confirmed!"
-              : "Pending"}
+                ? "Confirmed!"
+                : "Pending"}
           </div>
         </div>
       )}
@@ -728,7 +727,7 @@ const renderError = (error: Error | null) => {
   if (!error) return null;
   if (error instanceof BaseError) {
     const isUserRejection = error.walk(
-      (e) => e instanceof UserRejectedRequestError
+      (e) => e instanceof UserRejectedRequestError,
     );
 
     if (isUserRejection) {
